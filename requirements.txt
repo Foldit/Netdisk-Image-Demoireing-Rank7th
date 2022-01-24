@@ -1,6 +1,5 @@
-paddlepaddle
-paddlehub
-visualdl
-paddleseg
-paddlenlp
-paddleocr
+python==3.7.4
+PaddlePaddle==2.2.1
+cv2==4.1.1
+numpy==1.16.4
+PIL==7.1.2
