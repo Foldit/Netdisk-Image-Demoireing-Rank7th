@@ -94,6 +94,8 @@ demoire-baseline/
 3）较小的batch_size和较多的epoch对结果有增益,其中batch_size = 4，epoch = 1200。
 
 4）优化器选择AdamW。
+![image](https://user-images.githubusercontent.com/38917435/151189553-142617f7-dfb0-419f-bb91-8ce7d83698a7.png)
+
 # 训练与预测
 ```
 运行main.ipynb
