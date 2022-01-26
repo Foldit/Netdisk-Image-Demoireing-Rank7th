@@ -98,7 +98,7 @@ demoire-baseline/
 ```
 运行main.ipynb
 ```
-##在线训练与预测链接
+## 在线训练与预测链接
 https://aistudio.baidu.com/aistudio/projectdetail/3439230?contributionType=1
 # 参考baseline链接
 https://aistudio.baidu.com/aistudio/projectdetail/3220041?channelType=0&channel=0
