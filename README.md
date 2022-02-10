@@ -80,21 +80,25 @@ demoire-baseline/
 ## 数据增强策略
 在RandomHorizontalFlip、Resize、Normalize的基础上,
 
-1)因摩尔纹是以一定曲线的状态存在，所以对图像进行0-90度的随机旋转(Rotate);
+1) 因摩尔纹是以一定曲线的状态存在，所以对图像进行0-90度的随机旋转(Rotate);
 
-2)直接将图像resize成一个较小图片，可能会损失图像上摩尔纹的信息，所以先裁取大小为(512,512)的图像，再resize成(512,512)大小(Crop)。
+2) 直接将图像resize成一个较小图片，可能会损失图像上摩尔纹的信息，所以先裁取大小为(512,512)的图像，再resize成(512,512)大小(Crop)。
 
 其中，根据https://aistudio.baidu.com/paddle/forum/topic/show/993042 可知，尺寸不变的resize不会与原图像不同。
 ![](https://ai.bdstatic.com/file/8FEB9634A75F4BC881CF7DFDCFD39815)
 ## 调参优化策略
-1）使用baseline的原loss函数形式，preceptual loss的权值的改变对结果有增益，将preceptual loss的权值由1改为1.1。
+1) 使用baseline的原loss函数形式，preceptual loss的权值的改变对结果有增益，将preceptual loss的权值由1改为1.1。
 
-2）学习率衰减采用余弦退火(CosineAnnealingDecay),在训练时梯度下降算法可能陷入局部最小值，此时可以通过突然提高学习率，来“跳出”局部最小值并找到通向全局最小值的路径。
+2) 学习率衰减采用余弦退火(CosineAnnealingDecay),在训练时梯度下降算法可能陷入局部最小值，此时可以通过突然提高学习率，来“跳出”局部最小值并找到通向全局最小值的路径。
 
-3）较小的batch_size和较多的epoch对结果有增益,其中batch_size = 4，epoch = 1200。
+3) 较小的batch_size和较多的epoch对结果有增益,其中batch_size = 4，epoch = 1200。
 
-4）优化器选择AdamW。
+4) 优化器选择AdamW。
 ![image](https://user-images.githubusercontent.com/38917435/151189553-142617f7-dfb0-419f-bb91-8ce7d83698a7.png)
+# 下一步优化方向
+1) 在数据增强上加上仿射变换
+
+2) 在模型修改方面加上MBCNN的结果进行融合
 
 # 训练与预测
 ```
@@ -102,5 +106,8 @@ demoire-baseline/
 ```
 ## 在线训练与预测链接
 https://aistudio.baidu.com/aistudio/projectdetail/3439230?contributionType=1
-# 参考baseline链接
-https://aistudio.baidu.com/aistudio/projectdetail/3220041?channelType=0&channel=0
+# 参考文献和baseline链接
+论文：WDNet：Wavelet-based and Dual-branch Neural Network for Demoireing
+https://arxiv.org/abs/2007.07173
+
+baseline链接：https://aistudio.baidu.com/aistudio/projectdetail/3220041?channelType=0&channel=0
